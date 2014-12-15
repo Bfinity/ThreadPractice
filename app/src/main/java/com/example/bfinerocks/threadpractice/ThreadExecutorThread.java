@@ -8,6 +8,7 @@ import java.util.concurrent.Executor;
 public class ThreadExecutorThread implements Executor {
     @Override
     public void execute(Runnable runnable) {
-        
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 }
