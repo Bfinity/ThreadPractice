@@ -16,4 +16,8 @@ public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
     }
+
+    public interface updateTextViewOnUI{
+        public void updatedText(String stringOfText);
+    }
 }
