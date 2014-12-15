@@ -7,6 +7,7 @@ package com.example.bfinerocks.threadpractice;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,10 +42,18 @@ public class PlaceholderFragment extends Fragment {
             }
         });
         asyncTaskThread.execute();
-        Handler handler = new Handler(){
+        Handler handler = new Handler(Looper.getMainLooper()){
             @Override
             public void handleMessage(Message msg) {
-                String handlerMessage = msg.toString();
+                Bundle bundle = msg.getData();
+                final String handlerMessage = bundle.getString("executor");
+                Log.i("message", handlerMessage);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        text.setText(handlerMessage);
+                    }
+                });
             }
         };
         ThreadExecutorThread threadExecutorThread = new ThreadExecutorThread(handler);
