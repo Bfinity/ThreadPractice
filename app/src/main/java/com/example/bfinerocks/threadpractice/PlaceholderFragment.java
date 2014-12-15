@@ -27,9 +27,10 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         TextView text = (TextView) rootView.findViewById(R.id.text);
+        String UIThread = "The UI Thread ID is ";
         String threadID = String.valueOf(Thread.currentThread().getId());
         Log.i("UIThread", threadID);
-        text.setText(threadID);
+        text.setText(UIThread + threadID);
         AsyncTaskThread asyncTaskThread = new AsyncTaskThread(new AsyncTaskThreadInterface() {
             @Override
             public void updatedText(String stringOfText) {
