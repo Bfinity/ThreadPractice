@@ -19,16 +19,20 @@ public class ThreadPoolThread{
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
     private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
     private ThreadPoolExecutor mThreadPoolExecutor;
+    private ThreadPoolInterface mThreadPoolInterface;
 
     private ThreadPoolThread(){
         mThreadPoolExecutor = new ThreadPoolExecutor(NUM_OF_INITIAL_THREADS, NUM_OF_MAX_THREADS,
                 KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, queue);
+        Log.i("constructor", "Constructor called");
     }
 
-    public static ThreadPoolThread getThreadPoolThread(){
+    public static ThreadPoolThread getThreadPoolThread(ThreadPoolInterface threadPoolInterface){
         if(sThreadPoolThread == null){
             sThreadPoolThread = new ThreadPoolThread();
         }
+        Log.i("threadpool", "Threadpool called");
+        sThreadPoolThread.mThreadPoolInterface = threadPoolInterface;
         return sThreadPoolThread;
     }
 
@@ -36,6 +40,11 @@ public class ThreadPoolThread{
         sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
         String threadID = String.valueOf(Thread.currentThread().getId());
         Log.i("threadPool", threadID);
+        mThreadPoolInterface.updateData(threadID);
+    }
+
+    public interface ThreadPoolInterface{
+        public void updateData(String data);
     }
 
 

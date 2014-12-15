@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.bfinerocks.threadpractice.AsyncTaskThread.AsyncTaskThreadInterface;
+import com.example.bfinerocks.threadpractice.ThreadPoolThread.ThreadPoolInterface;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -66,7 +67,12 @@ public class PlaceholderFragment extends Fragment {
                 Log.i("Runnable", "runnable");
             }
         });
-        ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread();
+        ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread(new ThreadPoolInterface() {
+            @Override
+            public void updateData(String data) {
+                text.setText(data);
+            }
+        } );
         threadPoolThread.addNewTasksToQueue(new Runnable() {
             @Override
             public void run() {
