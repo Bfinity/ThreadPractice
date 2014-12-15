@@ -6,6 +6,9 @@ import android.os.AsyncTask;
  * Created by BFineRocks on 12/15/14.
  */
 public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
+    private AsyncTaskThreadInterface mAsyncTaskThreadInterface;
+
+    public AsyncTaskThread()
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -17,7 +20,7 @@ public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
         super.onPostExecute(s);
     }
 
-    public interface updateTextViewOnUI{
+    public interface AsyncTaskThreadInterface {
         public void updatedText(String stringOfText);
     }
 }
