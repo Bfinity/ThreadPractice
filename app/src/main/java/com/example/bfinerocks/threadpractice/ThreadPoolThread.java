@@ -31,7 +31,7 @@ public class ThreadPoolThread{
     }
 
     public static void addNewTasksToQueue(Runnable runnable){
-        
+        sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
     }
 
 
