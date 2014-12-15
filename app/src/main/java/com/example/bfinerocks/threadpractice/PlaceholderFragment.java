@@ -39,6 +39,13 @@ public class PlaceholderFragment extends Fragment {
             }
         });
         asyncTaskThread.execute();
+        ThreadExecutorThread threadExecutorThread = new ThreadExecutorThread();
+        threadExecutorThread.execute(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("Runnable", "runnable");
+            }
+        });
         return rootView;
     }
 }
