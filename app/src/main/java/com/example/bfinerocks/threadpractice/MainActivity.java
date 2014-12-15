@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView text = (TextView) rootView.findViewById(R.id.text);
             String threadID = String.valueOf(Thread.currentThread().getId());
+            text.setText(threadID);
             return rootView;
         }
     }
