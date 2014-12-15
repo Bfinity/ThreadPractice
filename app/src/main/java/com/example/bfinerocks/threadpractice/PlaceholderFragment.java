@@ -70,7 +70,10 @@ public class PlaceholderFragment extends Fragment {
         ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread(new ThreadPoolInterface() {
             @Override
             public void updateData(String data) {
-                text.setText(data);
+                String threadpool = "The ThreadPool Thread ID is ";
+                builder.append("\n").append(threadpool).append(data);
+                text.setText(builder.toString());
+
             }
         } );
         threadPoolThread.addNewTasksToQueue(new Runnable() {
