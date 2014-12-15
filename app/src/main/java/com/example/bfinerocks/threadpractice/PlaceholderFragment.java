@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.bfinerocks.threadpractice.AsyncTaskThread.AsyncTaskThreadInterface;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -28,7 +30,12 @@ public class PlaceholderFragment extends Fragment {
         String threadID = String.valueOf(Thread.currentThread().getId());
         Log.i("UIThread", threadID);
         text.setText(threadID);
-        AsyncTaskThread asyncTaskThread = new AsyncTaskThread();
+        AsyncTaskThread asyncTaskThread = new AsyncTaskThread(new AsyncTaskThreadInterface() {
+            @Override
+            public void updatedText(String stringOfText) {
+                
+            }
+        });
         asyncTaskThread.execute();
         return rootView;
     }
