@@ -2,6 +2,7 @@ package com.example.bfinerocks.threadpractice;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,13 +11,16 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolThread{
 
     public static ThreadPoolThread sThreadPoolThread;
-    private static int NUM_OF_CORES = Runtime.getRuntime().availableProcessors();
+    private static int NUM_OF_INITIAL_THREADS = 1;
+    private static int NUM_OF_MAX_THREADS = 2;
     private static final int KEEP_ALIVE_TIME = 1;
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
-    private final BlockingQueue<Runnable> queue;
+    private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
+    private ThreadPoolExecutor mThreadPoolExecutor;
 
     private ThreadPoolThread(){
-        queue = new LinkedBlockingDeque<Runnable>();
+        mThreadPoolExecutor = new ThreadPoolExecutor(NUM_OF_INITIAL_THREADS, NUM_OF_MAX_THREADS,
+                KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, queue);
     }
 
     public static ThreadPoolThread getThreadPoolThread(){
@@ -25,6 +29,13 @@ public class ThreadPoolThread{
         }
         return sThreadPoolThread;
     }
+
+    public static void addNewTasksToQueue(Runnable runnable){
+        
+    }
+
+
+
 
 
 
