@@ -66,6 +66,13 @@ public class PlaceholderFragment extends Fragment {
                 Log.i("Runnable", "runnable");
             }
         });
+        ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread();
+        threadPoolThread.addNewTasksToQueue(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("Runnable", "runnable");
+            }
+        });
         return rootView;
     }
 }

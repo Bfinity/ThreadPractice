@@ -1,5 +1,7 @@
 package com.example.bfinerocks.threadpractice;
 
+import android.util.Log;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -30,8 +32,10 @@ public class ThreadPoolThread{
         return sThreadPoolThread;
     }
 
-    public static void addNewTasksToQueue(Runnable runnable){
+    public void addNewTasksToQueue(Runnable runnable){
         sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
+        String threadID = String.valueOf(Thread.currentThread().getId());
+        Log.i("threadPool", threadID);
     }
 
 
