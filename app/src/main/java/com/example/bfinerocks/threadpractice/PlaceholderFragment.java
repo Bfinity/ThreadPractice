@@ -34,6 +34,7 @@ public class PlaceholderFragment extends Fragment {
         AsyncTaskThread asyncTaskThread = new AsyncTaskThread(new AsyncTaskThreadInterface() {
             @Override
             public void updatedText(String stringOfText) {
+                String AsyncThread = "The Async Thread ID is ";
 
             }
         });
