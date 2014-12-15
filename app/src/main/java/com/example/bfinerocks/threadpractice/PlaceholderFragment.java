@@ -30,15 +30,16 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         final TextView text = (TextView) rootView.findViewById(R.id.text);
+        final StringBuilder builder = new StringBuilder();
         final String uIThread = "The UI Thread ID is ";
         final String threadID = String.valueOf(Thread.currentThread().getId());
+        builder.append(uIThread).append(threadID);
         Log.i("UIThread", threadID);
-        text.setText(uIThread + threadID);
         AsyncTaskThread asyncTaskThread = new AsyncTaskThread(new AsyncTaskThreadInterface() {
             @Override
             public void updatedText(String stringOfText) {
                 String asyncThread = "The Async Thread ID is ";
-                text.setText(uIThread + threadID + "\n" + asyncThread + stringOfText);
+                builder.append("\n").append(asyncThread).append(stringOfText);
             }
         });
         asyncTaskThread.execute();
@@ -51,7 +52,9 @@ public class PlaceholderFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        text.setText(handlerMessage);
+                        String executor = "The Executor Implementation Thread ID is ";
+                        builder.append("\n").append(executor).append(handlerMessage);
+                        text.setText(builder.toString());
                     }
                 });
             }
