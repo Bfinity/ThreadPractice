@@ -20,6 +20,7 @@ public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        mAsyncTaskThreadInterface.updatedText(s);
     }
 
     public interface AsyncTaskThreadInterface {
