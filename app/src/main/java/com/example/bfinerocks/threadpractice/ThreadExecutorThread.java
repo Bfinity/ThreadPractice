@@ -1,6 +1,8 @@
 package com.example.bfinerocks.threadpractice;
 
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import java.util.concurrent.Executor;
@@ -20,6 +22,12 @@ public class ThreadExecutorThread implements Executor {
         String threadID = String.valueOf(thread.getId());
         thread.start();
         Log.i("ThreadExecutor", threadID);
+        Message msg = new Message();
+        msg.setTarget(mHandler);
+        Bundle bundle = new Bundle();
+        bundle.putString("executor", threadID);
+        msg.setData(bundle);
+        msg.sendToTarget();
     }
 
 }
