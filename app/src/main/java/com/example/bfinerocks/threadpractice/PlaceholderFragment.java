@@ -28,6 +28,8 @@ public class PlaceholderFragment extends Fragment {
         String threadID = String.valueOf(Thread.currentThread().getId());
         Log.i("UIThread", threadID);
         text.setText(threadID);
+        AsyncTaskThread asyncTaskThread = new AsyncTaskThread();
+        asyncTaskThread.execute();
         return rootView;
     }
 }
