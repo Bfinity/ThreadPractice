@@ -11,5 +11,12 @@ public class ThreadPoolThread{
 
     }
 
+    public static ThreadPoolThread getThreadPoolThread(){
+        if(sThreadPoolThread == null){
+            sThreadPoolThread = new ThreadPoolThread();
+        }
+        return sThreadPoolThread;
+    }
+
 
 }
