@@ -1,16 +1,19 @@
 package com.example.bfinerocks.threadpractice;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 /**
  * Created by BFineRocks on 12/15/14.
  */
-public class AsyncTaskThread extends AsyncTask<Void, Void, Void>{
+public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
+
     @Override
-    protected Void doInBackground(Void... voids) {
-        String thread = String.valueOf(Thread.currentThread().getId());
-        Log.i("AsyncTaskThread", thread);
+    protected String doInBackground(Void... voids) {
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
     }
 }
