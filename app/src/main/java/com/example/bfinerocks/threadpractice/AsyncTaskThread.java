@@ -8,7 +8,9 @@ import android.os.AsyncTask;
 public class AsyncTaskThread extends AsyncTask<Void, Void, String>{
     private AsyncTaskThreadInterface mAsyncTaskThreadInterface;
 
-    public AsyncTaskThread()
+    public AsyncTaskThread(AsyncTaskThreadInterface taskInterface){
+        this.mAsyncTaskThreadInterface = taskInterface;
+    }
 
     @Override
     protected String doInBackground(Void... voids) {
