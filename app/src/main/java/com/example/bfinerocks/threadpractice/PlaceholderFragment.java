@@ -51,16 +51,33 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void handleMessage(Message msg) {
                 Bundle bundle = msg.getData();
-                final String handlerMessage = bundle.getString("executor");
-                Log.i("message", handlerMessage);
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String executor = "The Executor Implementation Thread ID is ";
-                        builder.append("\n").append(executor).append(handlerMessage);
-                        text.setText(builder.toString());
-                    }
-                });
+                switch (msg.what){
+                    case 1:
+                        final String handlerMessage1 = bundle.getString("executor");
+                        Log.i("message", handlerMessage1);
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String executor = "The Executor Implementation Thread ID is ";
+                                builder.append("\n").append(executor).append(handlerMessage1);
+                                text.setText(builder.toString());
+                            }
+                        });
+                        break;
+                    case 2:
+                        final String handlerMessage2 = bundle.getString("executorService");
+                        Log.i("message", handlerMessage2);
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String executor = "The ExecutorService Implementation Thread ID is ";
+                                builder.append("\n").append(executor).append(handlerMessage2);
+                                text.setText(builder.toString());
+                            }
+                        });
+                        break;
+                }
+
             }
         };
         ThreadExecutorThread threadExecutorThread = new ThreadExecutorThread(handler);
@@ -81,7 +98,7 @@ public class PlaceholderFragment extends Fragment {
                 Message msg = new Message();
                 msg.what = 2;
                 Bundle bundle = new Bundle();
-                bundle.putString("msg", threadId);
+                bundle.putString("executorService", threadId);
                 msg.setData(bundle);
                 handler.sendMessage(msg);
             }
