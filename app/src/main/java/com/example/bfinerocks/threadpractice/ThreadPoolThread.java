@@ -20,10 +20,11 @@ public class ThreadPoolThread{
     private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
     private ThreadPoolExecutor mThreadPoolExecutor;
     private ThreadPoolInterface mThreadPoolInterface;
+    ThreadFactoryClass mThreadFactoryClass = new ThreadFactoryClass();
 
     private ThreadPoolThread(){
         mThreadPoolExecutor = new ThreadPoolExecutor(NUM_OF_INITIAL_THREADS, NUM_OF_MAX_THREADS,
-                KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, queue);
+                KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, queue, mThreadFactoryClass);
         Log.i("constructor", "Constructor called");
     }
 
@@ -47,12 +48,12 @@ public class ThreadPoolThread{
         public void updateData(String data);
     }
 
-    public class ThreadFactory implements java.util.concurrent.ThreadFactory{
+    public class ThreadFactoryClass implements java.util.concurrent.ThreadFactory{
         @Override
         public Thread newThread(Runnable runnable) {
             Thread thread = new Thread();
             thread.setName("ThreadFactory");
-            thread.setPriority(Thread.NORM_PRIORITY);
+            thread.setPriority();
             return thread;
         }
     }
