@@ -18,6 +18,9 @@ import android.widget.TextView;
 import com.example.bfinerocks.threadpractice.AsyncTaskThread.AsyncTaskThreadInterface;
 import com.example.bfinerocks.threadpractice.ThreadPoolThread.ThreadPoolInterface;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -65,6 +68,15 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void run() {
                 Log.i("Runnable", "runnable");
+            }
+        });
+
+        ExecutorService threadExecutor = Executors.newSingleThreadExecutor();
+        threadExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("runnable", "runnable");
+                Log.i("thread", String.valueOf(Thread.currentThread().getId()));
             }
         });
         ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread(new ThreadPoolInterface() {

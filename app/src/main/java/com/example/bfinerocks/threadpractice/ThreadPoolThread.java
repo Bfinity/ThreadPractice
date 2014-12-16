@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolThread{
 
     public static ThreadPoolThread sThreadPoolThread;
-    private static int NUM_OF_INITIAL_THREADS = 2;
-    private static int NUM_OF_MAX_THREADS = 5;
+    private static int NUM_OF_INITIAL_THREADS = Runtime.getRuntime().availableProcessors();
+    private static int NUM_OF_MAX_THREADS = Runtime.getRuntime().availableProcessors();
     private static final int KEEP_ALIVE_TIME = 1;
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
     private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
@@ -51,9 +51,9 @@ public class ThreadPoolThread{
     public class ThreadFactoryClass implements java.util.concurrent.ThreadFactory{
         @Override
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread();
+            Thread thread = new Thread(runnable);
             thread.setName("ThreadFactory");
-            thread.setPriority();
+            thread.setPriority(Thread.NORM_PRIORITY);
             return thread;
         }
     }
