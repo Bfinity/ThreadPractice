@@ -35,7 +35,7 @@ public class PlaceholderFragment extends Fragment {
         final String uIThread = "The UI Thread ID is ";
         final String threadID = String.valueOf(Thread.currentThread().getId());
         builder.append(uIThread).append(threadID);
-        Log.i("UIThread", threadID);
+        Log.i("UIThread", threadID + Thread.currentThread().getName());
         AsyncTaskThread asyncTaskThread = new AsyncTaskThread(new AsyncTaskThreadInterface() {
             @Override
             public void updatedText(String stringOfText) {

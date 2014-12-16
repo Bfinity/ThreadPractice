@@ -39,12 +39,19 @@ public class ThreadPoolThread{
     public void addNewTasksToQueue(Runnable runnable){
         sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
         String threadID = String.valueOf(Thread.currentThread().getId());
-        Log.i("threadPool", threadID);
+        Log.i("threadPool", threadID + Thread.currentThread().getName());
         mThreadPoolInterface.updateData(threadID);
     }
 
     public interface ThreadPoolInterface{
         public void updateData(String data);
+    }
+
+    public class ThreadFactory implements java.util.concurrent.ThreadFactory{
+        @Override
+        public Thread newThread(Runnable runnable) {
+            return null;
+        }
     }
 
 
