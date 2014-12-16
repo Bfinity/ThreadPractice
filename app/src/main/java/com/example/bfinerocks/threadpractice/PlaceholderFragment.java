@@ -47,7 +47,7 @@ public class PlaceholderFragment extends Fragment {
             }
         });
         asyncTaskThread.execute();
-        Handler handler = new Handler(Looper.getMainLooper()){
+        final Handler handler = new Handler(Looper.getMainLooper()){
             @Override
             public void handleMessage(Message msg) {
                 Bundle bundle = msg.getData();
@@ -76,9 +76,17 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void run() {
                 Log.i("runnable", "runnable");
-                Log.i("thread", String.valueOf(Thread.currentThread().getId()));
+                String threadId = String.valueOf(Thread.currentThread().getId());
+                Log.i("newSingle", threadId);
+                Message msg = new Message();
+                msg.what = 2;
+                Bundle bundle = new Bundle();
+                bundle.putString("msg", threadId);
+                msg.setData(bundle);
+                handler.sendMessage(msg);
             }
         });
+
         ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread(new ThreadPoolInterface() {
             @Override
             public void updateData(String data) {

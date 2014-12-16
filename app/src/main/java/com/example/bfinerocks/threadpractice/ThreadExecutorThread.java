@@ -23,6 +23,7 @@ public class ThreadExecutorThread implements Executor {
         thread.start();
         Log.i("ThreadExecutor", threadID);
         Message msg = new Message();
+        msg.what = 1;
         Bundle bundle = new Bundle();
         bundle.putString("executor", threadID);
         msg.setData(bundle);
