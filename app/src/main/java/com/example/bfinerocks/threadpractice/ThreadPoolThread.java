@@ -19,7 +19,6 @@ public class ThreadPoolThread{
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
     private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
     private ThreadPoolExecutor mThreadPoolExecutor;
-    private ThreadPoolInterface mThreadPoolInterface;
     ThreadFactoryClass mThreadFactoryClass = new ThreadFactoryClass();
 
     private ThreadPoolThread(){
@@ -28,12 +27,11 @@ public class ThreadPoolThread{
         Log.i("constructor", "Constructor called");
     }
 
-    public static ThreadPoolThread getThreadPoolThread(ThreadPoolInterface threadPoolInterface){
+    public static ThreadPoolThread getThreadPoolThread(){
         if(sThreadPoolThread == null){
             sThreadPoolThread = new ThreadPoolThread();
         }
         Log.i("threadpool", "Threadpool called");
-        sThreadPoolThread.mThreadPoolInterface = threadPoolInterface;
         return sThreadPoolThread;
     }
 
@@ -41,11 +39,6 @@ public class ThreadPoolThread{
         sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
         String threadID = String.valueOf(Thread.currentThread().getId());
         Log.i("threadPool", threadID + Thread.currentThread().getName());
-        mThreadPoolInterface.updateData(threadID);
-    }
-
-    public interface ThreadPoolInterface{
-        public void updateData(String data);
     }
 
     public class ThreadFactoryClass implements java.util.concurrent.ThreadFactory{

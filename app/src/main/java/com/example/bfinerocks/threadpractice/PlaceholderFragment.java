@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.bfinerocks.threadpractice.AsyncTaskThread.AsyncTaskThreadInterface;
-import com.example.bfinerocks.threadpractice.ThreadPoolThread.ThreadPoolInterface;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -104,15 +103,7 @@ public class PlaceholderFragment extends Fragment {
             }
         });
 
-        ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread(new ThreadPoolInterface() {
-            @Override
-            public void updateData(String data) {
-                String threadpool = "The ThreadPool Thread ID is ";
-                builder.append("\n").append(threadpool).append(data);
-                text.setText(builder.toString());
-
-            }
-        } );
+        ThreadPoolThread threadPoolThread = ThreadPoolThread.getThreadPoolThread();
         threadPoolThread.addNewTasksToQueue(new Runnable() {
             @Override
             public void run() {
