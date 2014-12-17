@@ -75,6 +75,17 @@ public class PlaceholderFragment extends Fragment {
                             }
                         });
                         break;
+                    case 3:
+                        final String handlerMessage3 = bundle.getString("threadpool");
+                        Log.i("message", handlerMessage3);
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String executor = "The Threadpool Implementation Thread ID is ";
+                                builder.append("\n").append(executor).append(handlerMessage3);
+                                text.setText(builder.toString());
+                            }
+                        });
                 }
 
             }
@@ -108,6 +119,14 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void run() {
                 Log.i("Runnable", "runnable");
+                String threadId = String.valueOf(Thread.currentThread().getId());
+                Log.i("newSingle", threadId);
+                Message msg = new Message();
+                msg.what = 3;
+                Bundle bundle = new Bundle();
+                bundle.putString("threadpool", threadId);
+                msg.setData(bundle);
+                handler.sendMessage(msg);
             }
         });
         return rootView;

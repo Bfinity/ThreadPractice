@@ -1,5 +1,7 @@
 package com.example.bfinerocks.threadpractice;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import java.util.concurrent.BlockingQueue;
@@ -19,11 +21,14 @@ public class ThreadPoolThread{
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
     private final BlockingQueue<Runnable> queue = new LinkedBlockingDeque<Runnable>();
     private ThreadPoolExecutor mThreadPoolExecutor;
-    ThreadFactoryClass mThreadFactoryClass = new ThreadFactoryClass();
+    public Handler uIHandler;
+    private ThreadFactoryClass mThreadFactoryClass = new ThreadFactoryClass();
+
 
     private ThreadPoolThread(){
         mThreadPoolExecutor = new ThreadPoolExecutor(NUM_OF_INITIAL_THREADS, NUM_OF_MAX_THREADS,
                 KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, queue, mThreadFactoryClass);
+        uIHandler = new Handler(Looper.getMainLooper());
         Log.i("constructor", "Constructor called");
     }
 
@@ -37,8 +42,8 @@ public class ThreadPoolThread{
 
     public void addNewTasksToQueue(Runnable runnable){
         sThreadPoolThread.mThreadPoolExecutor.execute(runnable);
-        String threadID = String.valueOf(Thread.currentThread().getId());
-        Log.i("threadPool", threadID + Thread.currentThread().getName());
+/*        String threadID = String.valueOf(Thread.currentThread().getId());
+        Log.i("threadPool", threadID + Thread.currentThread().getName());*/
     }
 
     public class ThreadFactoryClass implements java.util.concurrent.ThreadFactory{

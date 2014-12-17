@@ -42,8 +42,8 @@
       <file leaf-file-name="PlaceholderFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bfinerocks/threadpractice/PlaceholderFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4326241" vertical-offset="1392" max-vertical-offset="1815">
-              <caret line="105" column="81" selection-start-line="105" selection-start-column="81" selection-end-line="105" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.78014183" vertical-offset="960" max-vertical-offset="2100">
+              <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1395#1675#0" expanded="true" />
@@ -52,12 +52,13 @@
                 <element signature="e#2550#2551#0" expanded="true" />
                 <element signature="e#2842#3263#0" expanded="true" />
                 <element signature="e#3236#3237#0" expanded="true" />
-                <element signature="e#3465#3606#0" expanded="true" />
-                <element signature="e#3595#3596#0" expanded="true" />
-                <element signature="e#3719#4251#0" expanded="true" />
+                <element signature="e#3523#3939#0" expanded="true" />
+                <element signature="e#4110#4251#0" expanded="true" />
                 <element signature="e#4240#4241#0" expanded="true" />
-                <element signature="e#4383#4524#0" expanded="true" />
-                <element signature="e#4513#4514#0" expanded="true" />
+                <element signature="e#4364#4896#0" expanded="true" />
+                <element signature="e#4885#4886#0" expanded="true" />
+                <element signature="e#5028#5555#0" expanded="true" />
+                <element signature="e#5544#5545#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,11 +107,11 @@
       <file leaf-file-name="ThreadPoolThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bfinerocks/threadpractice/ThreadPoolThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="990">
-              <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1065">
+              <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#763#773#0" expanded="true" />
+                <element signature="e#816#826#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1466,19 +1467,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bfinerocks/threadpractice/ThreadPoolThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="990">
-          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1065">
+          <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#763#773#0" expanded="true" />
+            <element signature="e#816#826#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bfinerocks/threadpractice/PlaceholderFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4326241" vertical-offset="1392" max-vertical-offset="1815">
-          <caret line="105" column="81" selection-start-line="105" selection-start-column="81" selection-end-line="105" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.78014183" vertical-offset="960" max-vertical-offset="2100">
+          <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1395#1675#0" expanded="true" />
@@ -1487,12 +1488,13 @@
             <element signature="e#2550#2551#0" expanded="true" />
             <element signature="e#2842#3263#0" expanded="true" />
             <element signature="e#3236#3237#0" expanded="true" />
-            <element signature="e#3465#3606#0" expanded="true" />
-            <element signature="e#3595#3596#0" expanded="true" />
-            <element signature="e#3719#4251#0" expanded="true" />
+            <element signature="e#3523#3939#0" expanded="true" />
+            <element signature="e#4110#4251#0" expanded="true" />
             <element signature="e#4240#4241#0" expanded="true" />
-            <element signature="e#4383#4524#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4364#4896#0" expanded="true" />
+            <element signature="e#4885#4886#0" expanded="true" />
+            <element signature="e#5028#5555#0" expanded="true" />
+            <element signature="e#5544#5545#0" expanded="true" />
           </folding>
         </state>
       </provider>
